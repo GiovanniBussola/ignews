@@ -34,15 +34,17 @@ export default NextAuth({
                 data: { email }
               }
             ),
-            q.Get(
-              q.Index('user_by_email'),
-              q.Casefold(email)
-            )
+            // q.Get(
+            //   q.Index('user_by_email'),
+            //   q.Casefold(email)
+            // )
+            null
           )
         )
         
         return true
-      } catch {
+      } catch(err) {
+        console.log(err)
         return false
       }
     }
